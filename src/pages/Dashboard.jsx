@@ -663,7 +663,7 @@ const Dashboard = () => {
           <h2 style={{ color: "white", marginBottom: "8px" }}>
             Roxat Restoran
           </h2>
-          <p>Ma'lumotlar yuklanmoqda...</p>
+          <p> Iltimos kuting Ma'lumotlar yuklanmoqda...</p>
         </div>
       </div>
     );
