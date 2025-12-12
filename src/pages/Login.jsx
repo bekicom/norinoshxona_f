@@ -4,7 +4,7 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -13,27 +13,13 @@ const Login = () => {
   const handleFinish = async (values) => {
     setLoading(true);
     try {
-      // ✅ email yuboriladi (username emas!)
-      const { data } = await API.post("/auth/login", {
-        email: values.email, // Backend email kutadi
-        password: values.password,
-      });
-
-      // ✅ Token va user ma'lumotlarini saqlash
+      const { data } = await API.post("/auth/login", values);
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-
       message.success("Kirish muvaffaqiyatli! 🎉");
-
-      // ✅ Dashboard ga o'tish (replace: true - orqaga qaytmaslik uchun)
-      setTimeout(() => {
-        navigate("/dashboard", { replace: true });
-      }, 500);
+      navigate("/dashboard");
+      window.location.reload();
     } catch (err) {
-      console.error("❌ Login xatosi:", err);
-      message.error(
-        err.response?.data?.message || "Login yoki parol noto'g'ri ❌"
-      );
+      message.error("Login yoki parol noto‘g‘ri ❌");
     } finally {
       setLoading(false);
     }
@@ -77,7 +63,7 @@ const Login = () => {
             🍽️
           </div>
           <Title level={3} style={{ marginBottom: 0 }}>
-            Roxat
+            Roxat 
           </Title>
         </div>
 
@@ -88,16 +74,13 @@ const Login = () => {
           autoComplete="off"
         >
           <Form.Item
-            name="email"
-            label="Email"
-            rules={[
-              { required: true, message: "Email kiriting" },
-              { type: "email", message: "To'g'ri email kiriting" },
-            ]}
+            name="username"
+            label="Login"
+            rules={[{ required: true, message: "Login kiriting" }]}
           >
             <Input
               prefix={<UserOutlined style={{ color: "#bfbfbf" }} />}
-              placeholder="example@mail.com"
+              placeholder="Enter your username"
               size="large"
               style={{ borderRadius: 10 }}
             />
