@@ -16,6 +16,7 @@ const Login = () => {
       const { data } = await API.post("/auth/login", values);
       localStorage.setItem("token", data.token);
       message.success("Kirish muvaffaqiyatli! 🎉");
+      message.success("Iltimos kuting malumotlar olib kelinmoqda! 🎉");
       navigate("/dashboard");
       window.location.reload();
     } catch (err) {
