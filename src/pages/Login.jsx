@@ -16,7 +16,7 @@ const Login = () => {
       const { data } = await API.post("/auth/login", values);
       localStorage.setItem("token", data.token);
       message.success("Kirish muvaffaqiyatli! 🎉");
-      navigate("/dashboard");
+      navigate("/dashboard1");
       window.location.reload();
     } catch (err) {
       message.error("Login yoki parol noto‘g‘ri ❌");

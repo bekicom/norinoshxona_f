@@ -21,18 +21,18 @@ function App() {
       {/* Root yo'l / -> login ga yo'naltirish */}
       <Route
         path="/"
-        element={<Navigate to={token ? "/dashboard" : "/login"} />}
+        element={<Navigate to={token ? "/dashboard1" : "/login"} />}
       />
 
       {/* Login sahifasi */}
       <Route
         path="/login"
-        element={token ? <Navigate to="/dashboard" /> : <Login />}
+        element={token ? <Navigate to="/dashboard1" /> : <Login />}
       />
 
       {/* Dashboard sahifasi */}
       <Route
-        path="/dashboard"
+        path="/dashboard1"
         element={token ? <Dashboard /> : <Navigate to="/login" />}
       />
 

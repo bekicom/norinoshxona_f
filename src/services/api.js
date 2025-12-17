@@ -2,9 +2,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://norin0shxona-b.vercel.app/api", // Backend URL
-  // baseURL: "https://roxatb.richman.uz/api",
-  // baseURL: "http://localhost:8043/api",
+  baseURL: "https://norinserver.richman.uz/api", // Backend URL
+  // baseURL: "http://localhost:8070/api",
 
   headers: {
     "Content-Type": "application/json",

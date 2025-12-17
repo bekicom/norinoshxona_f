@@ -115,7 +115,7 @@ const Dashboard = () => {
       try {
         // ✅ Har doim ko'proq ma'lumot olamiz (sana filtrini serverga yubormaymiz, frontendda qilamiz)
         const params = {
-          limit: 2000, // Ko'tarib oldik, agar ko'p ma'lumot bo'lsa
+          limit: 100, // Ko'tarib oldik, agar ko'p ma'lumot bo'lsa
           page: 1,
         };
 
@@ -730,24 +730,10 @@ const Dashboard = () => {
               style={{ width: 160 }}
               loading={loading}
             >
-              <Select.Option value="1">NOVOIY-filial</Select.Option>
-              <Select.Option value="2">DOSLIK-filial</Select.Option>
-              <Select.Option value="3">To'raqo'rg'on-filial</Select.Option>
+              <Select.Option value="1">roxat</Select.Option>
             </Select>
           </Space>
-          <Button
-            type="default"
-            style={{
-              fontWeight: "600",
-              borderRadius: "8px",
-              border: "1px solid rgba(255,255,255,0.4)",
-            }}
-            onClick={() =>
-              (window.location.href = "https://Roxat-faceid-f.vercel.app/")
-            }
-          >
-            Roxat-davomat
-          </Button>
+
 
           <Button
             type="default"
